@@ -1,7 +1,7 @@
 {
-  "name": "Anima - Portal Estudiantil",
-  "short_name": "Anima",
-  "description": "Portal estudiantil para gestión académica",
+  "name": "Eduweb - App Estudiantil",
+  "short_name": "Eduweb",
+  "description": "App estudiantil para gestión académica",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
