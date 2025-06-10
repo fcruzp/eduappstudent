@@ -5,8 +5,8 @@ import { AutenticacinDe } from "./screens/AutenticacinDe";
 import { Dashboard } from "./screens/Dashboard";
 import { Horarios } from "./screens/Horarios/Horarios";
 import { Calificaciones } from "./screens/Calificaciones/Calificaciones";
-import { Clases } from "./screens/Clases/Clases";
-import { Asistencia } from "./screens/Asistencia/Asistencia";
+import { HistoriaAsistencia } from "./screens/HistoriaAsistencia/HistoriaAsistencia";
+import { ListaClases } from "./screens/ListaClases";
 import { Profile } from "./screens/Profile/Profile";
 
 function App() {
@@ -40,8 +40,8 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/horarios" element={<Horarios />} />
         <Route path="/calificaciones" element={<Calificaciones />} />
-        <Route path="/clases" element={<Clases />} />
-        <Route path="/asistencia" element={<Asistencia />} />
+        <Route path="/historia-asistencia" element={<HistoriaAsistencia />} />
+        <Route path="/lista-clases" element={<ListaClases />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
     </Router>

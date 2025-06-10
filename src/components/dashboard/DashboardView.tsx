@@ -9,7 +9,7 @@ import { pendingTasks } from "../../data/pendingTasksData";
 
 interface DashboardViewProps {
   onAsistenciaClick?: () => void;
-  onClasesClick?: () => void;
+  onHistoriaAsistenciaClick?: () => void;
   onProfileClick?: () => void;
   onSearchClick?: () => void;
   onTaskClick?: (taskId: string) => void;
@@ -19,7 +19,7 @@ interface DashboardViewProps {
 
 export const DashboardView: React.FC<DashboardViewProps> = ({
   onAsistenciaClick,
-  onClasesClick,
+  onHistoriaAsistenciaClick,
   onProfileClick,
   onSearchClick,
   onTaskClick,
@@ -72,7 +72,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
   // Create dashboard summary data with navigation callbacks
   const dashboardSummaryData = createDashboardSummaryData(
     onAsistenciaClick,
-    onClasesClick
+    onHistoriaAsistenciaClick
   );
 
   return (
@@ -105,7 +105,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
 
           <PendingTasksList
             tasks={pendingTasks}
-            onViewAllClick={onClasesClick}
+            onViewAllClick={onHistoriaAsistenciaClick}
             onTaskClick={onTaskClick}
           />
         </div>

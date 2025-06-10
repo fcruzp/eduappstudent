@@ -19,100 +19,110 @@ export const AutenticacinDe = ({ onLoginSuccess }: AutenticacinDeProps): JSX.Ele
   };
 
   return (
-    <div className="bg-white flex flex-row justify-center w-full">
-      <div className="bg-white overflow-hidden w-[430px] h-[932px] relative">
-        {/* Logo */}
-        <img
-          className="absolute w-[249px] h-[193px] top-44 left-[91px]"
-          alt="Logo central gral rd"
-          src="/logo-central-gral-rd-minerd-1.svg"
-        />
+    <div className="bg-gris-claro min-h-screen w-full">
+      <div className="max-w-[430px] mx-auto bg-white min-h-screen relative">
+        <div className="px-4 pt-16 pb-20">
+          {/* Logo Section */}
+          <div className="flex justify-center mb-12 pt-16">
+            <img
+              className="w-[249px] h-[193px]"
+              alt="Logo central gral rd"
+              src="/logo-central-gral-rd-minerd-1.svg"
+            />
+          </div>
 
-        {/* Login Form */}
-        <Card className="absolute w-[430px] h-[449px] top-[483px] left-0 bg-azul-marino rounded-[30px_30px_0px_0px] overflow-hidden border-none shadow-none">
-          <CardContent className="flex flex-col w-[353px] items-center justify-center gap-[25px] absolute top-[22px] left-[45px] p-0">
-            {/* Username Input */}
-            <div className="flex h-[50px] items-center gap-2 px-[13px] py-[13.5px] relative self-stretch w-full bg-white rounded-[20px]">
-              <UserIcon className="w-[16.67px] h-5 text-texto-principal-oscuro" />
-              <Input
-                className="border-none shadow-none h-4 p-0 font-titulos font-[number:var(--titulos-font-weight)] text-texto-principal-oscuro text-[length:var(--titulos-font-size)] tracking-[var(--titulos-letter-spacing)] leading-[var(--titulos-line-height)] [font-style:var(--titulos-font-style)] focus-visible:ring-0 focus-visible:ring-offset-0"
-                defaultValue="D-466"
-              />
-            </div>
+          {/* Login Form Card */}
+          <Card className="bg-azul-marino rounded-[30px] border-none shadow-lg">
+            <CardContent className="p-6 space-y-6">
+              {/* Username Input */}
+              <div className="space-y-2">
+                <div className="flex h-[50px] items-center gap-3 px-4 py-3 bg-white rounded-[20px] transition-all hover:shadow-sm focus-within:ring-2 focus-within:ring-azul-vivo focus-within:ring-offset-2">
+                  <UserIcon className="w-5 h-5 text-texto-principal-oscuro flex-shrink-0" />
+                  <Input
+                    placeholder="Número de estudiante"
+                    className="border-none shadow-none bg-transparent p-0 text-texto-principal-oscuro placeholder:text-texto-secundario focus-visible:ring-0 focus-visible:ring-offset-0 font-medium"
+                    defaultValue="D-466"
+                  />
+                </div>
+              </div>
 
-            {/* Password Input */}
-            <div className="flex h-[50px] items-center gap-2 px-[13px] py-[13.5px] relative self-stretch w-full bg-white rounded-[20px]">
-              <KeyIcon className="w-5 h-5 text-texto-principal-oscuro" />
-              <Input
-                type={showPassword ? "text" : "password"}
-                className="border-none shadow-none h-8 p-0 font-['Public_Sans',Helvetica] font-normal text-[#131b2e9e] text-[17px] tracking-[0] leading-[23.0px] focus-visible:ring-0 focus-visible:ring-offset-0"
-                defaultValue="***********************************"
-              />
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-4 w-4 p-0"
-                onClick={() => setShowPassword(!showPassword)}
-              >
-                {showPassword ? (
-                  <EyeOffIcon className="h-4 w-4" />
-                ) : (
-                  <EyeIcon className="h-4 w-4" />
-                )}
-              </Button>
-            </div>
+              {/* Password Input */}
+              <div className="space-y-2">
+                <div className="flex h-[50px] items-center gap-3 px-4 py-3 bg-white rounded-[20px] transition-all hover:shadow-sm focus-within:ring-2 focus-within:ring-azul-vivo focus-within:ring-offset-2">
+                  <KeyIcon className="w-5 h-5 text-texto-principal-oscuro flex-shrink-0" />
+                  <Input
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Contraseña"
+                    className="border-none shadow-none bg-transparent p-0 text-texto-principal-oscuro placeholder:text-texto-secundario focus-visible:ring-0 focus-visible:ring-offset-0 font-medium flex-1"
+                    defaultValue="***********************************"
+                  />
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="h-8 w-8 p-0 hover:bg-gray-100 rounded-full"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? (
+                      <EyeOffIcon className="h-4 w-4 text-texto-secundario" />
+                    ) : (
+                      <EyeIcon className="h-4 w-4 text-texto-secundario" />
+                    )}
+                  </Button>
+                </div>
+              </div>
 
-            {/* Privacy Policy Checkbox */}
-            <div className="flex w-[353px] h-[22px] items-center gap-[18.36px] relative">
-              <div className="inline-flex items-center gap-[5.74px] relative flex-[0_0_auto]">
-                <Checkbox id="privacy-policy" className="w-5 h-5 rounded-sm" />
+              {/* Privacy Policy Checkbox */}
+              <div className="flex items-center gap-3">
+                <Checkbox
+                  id="privacy-policy"
+                  className="w-5 h-5 rounded-sm border-white data-[state=checked]:bg-white data-[state=checked]:text-azul-marino"
+                />
                 <label
                   htmlFor="privacy-policy"
-                  className="relative w-fit mt-[-1.15px] font-['Public_Sans',Helvetica] font-normal text-blanco text-[13.8px] text-center tracking-[-0.14px] leading-[20.7px] whitespace-nowrap cursor-pointer"
+                  className="text-sm text-white font-light leading-relaxed cursor-pointer select-none"
                 >
-                  <span className="font-light tracking-[-0.02px]">
-                    Acepto las políticas de privacidad
-                  </span>
+                  Acepto las políticas de privacidad
                 </label>
               </div>
-            </div>
 
-            {/* Login Button */}
-            <Button 
-              onClick={handleLogin}
-              className="bg-texto-activoenfocado h-[50px] w-full rounded-[48px] font-['Public_Sans',Helvetica] font-medium text-white text-[17px] hover:bg-texto-activoenfocado/90"
-            >
-              Iniciar sesión
-            </Button>
+              {/* Login Button */}
+              <Button
+                onClick={handleLogin}
+                className="bg-texto-activoenfocado hover:bg-texto-activoenfocado/90 h-[50px] w-full rounded-[25px] font-medium text-white text-base transition-all duration-200 hover:shadow-lg"
+              >
+                Iniciar sesión
+              </Button>
 
-            {/* Office 365 Login Button */}
-            <Button
-              variant="outline"
-              className="bg-gris-neutro h-[50px] w-full rounded-[48px] font-['Public_Sans',Helvetica] font-medium text-[#1a1e28] text-[17px] border-none hover:bg-gris-neutro/90 hover:text-[#1a1e28]"
-            >
-              Iniciar sesión con Office 365
-            </Button>
+              {/* Office 365 Login Button */}
+              <Button
+                variant="outline"
+                className="bg-gris-neutro hover:bg-gris-neutro/90 h-[50px] w-full rounded-[25px] font-medium text-texto-principal-oscuro text-base border-none transition-all duration-200 hover:shadow-lg"
+              >
+                Iniciar sesión con Office 365
+              </Button>
 
-            {/* Recover Password Link */}
-            <Button variant="link" className="h-6 relative w-[196px] p-0">
-              <div className="flex h-5 items-end gap-1.5 relative w-[196px]">
-                <KeyIcon className="w-5 h-5 text-white" />
-                <span className="relative w-44 h-5 mt-[-1.00px] mr-[-6.00px] font-['Public_Sans',Helvetica] font-light text-white text-[17px] text-center tracking-[0] leading-[23.0px] whitespace-nowrap overflow-hidden text-ellipsis">
-                  Recuperar contraseña
-                </span>
+              {/* Recover Password Link */}
+              <div className="flex justify-center pt-2">
+                <Button
+                  variant="link"
+                  className="text-white hover:text-white/80 p-0 h-auto font-light transition-colors duration-200"
+                >
+                  <div className="flex items-center gap-2">
+                    <KeyIcon className="w-4 h-4" />
+                    <span className="text-sm">Recuperar contraseña</span>
+                  </div>
+                </Button>
               </div>
-            </Button>
-          </CardContent>
+            </CardContent>
+          </Card>
 
-          {/* Bottom Indicators */}
-          <div className="absolute w-[430px] h-8 top-[470px] left-0">
-            <div className="relative w-[120px] h-1 top-5 left-[155px] bg-white rounded-[360px]" />
+          {/* Bottom Navigation Indicator */}
+          <div className="flex justify-center mt-8 space-x-2">
+            <div className="w-8 h-1 bg-azul-vivo rounded-full" />
+            <div className="w-8 h-1 bg-lightmodegreygrey-300 rounded-full" />
+            <div className="w-8 h-1 bg-lightmodegreygrey-300 rounded-full" />
           </div>
-
-          <div className="absolute w-[430px] h-8 top-[417px] left-0">
-            <div className="relative w-[120px] h-1 top-5 left-[155px] bg-white rounded-[360px]" />
-          </div>
-        </Card>
+        </div>
       </div>
     </div>
   );

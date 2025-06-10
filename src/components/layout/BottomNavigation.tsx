@@ -1,5 +1,5 @@
 import React from "react";
-import { Calendar, FileText, Users } from "lucide-react";
+import { Calendar, FileText, Users, BookOpen, ScrollText } from "lucide-react";
 import { Button } from "../ui/button";
 import { BottomNavigationProps } from "../../types/bottomNavigation";
 import { useNavigate } from "react-router-dom";
@@ -11,11 +11,11 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({
 
   return (
     <>
-      <nav className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-[430px] bg-white border-t border-lightmodegreygrey-200 px-6 py-3">
+      <nav className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-[430px] bg-white border-t border-lightmodegreygrey-200 px-4 py-3">
         <div className="flex items-center justify-around">
-          <Button 
-            variant="ghost" 
-            size="sm" 
+          <Button
+            variant="ghost"
+            size="sm"
             className={`flex flex-col items-center gap-1 ${currentView === 'dashboard' ? 'text-azul-vivo' : 'text-texto-secundario'}`}
             onClick={() => navigate('/dashboard')}
           >
@@ -25,19 +25,29 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({
             <span className="text-xs">Inicio</span>
           </Button>
           
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            className={`flex flex-col items-center gap-1 ${currentView === 'horarios' ? 'text-azul-vivo' : 'text-texto-secundario'}`}
-            onClick={() => navigate('/horarios')}
+          <Button
+            variant="ghost"
+            size="sm"
+            className={`flex flex-col items-center gap-1 ${currentView === 'historia-asistencia' ? 'text-azul-vivo' : 'text-texto-secundario'}`}
+            onClick={() => navigate('/historia-asistencia')}
           >
-            <Calendar className="w-6 h-6" />
-            <span className="text-xs">Horarios</span>
+            <ScrollText className="w-6 h-6" />
+            <span className="text-xs">Asistencia</span>
           </Button>
           
-          <Button 
-            variant="ghost" 
-            size="sm" 
+          <Button
+            variant="ghost"
+            size="sm"
+            className={`flex flex-col items-center gap-1 ${currentView === 'lista-clases' ? 'text-azul-vivo' : 'text-texto-secundario'}`}
+            onClick={() => navigate('/lista-clases')}
+          >
+            <BookOpen className="w-6 h-6" />
+            <span className="text-xs">Lista de Clases</span>
+          </Button>
+          
+          <Button
+            variant="ghost"
+            size="sm"
             className={`flex flex-col items-center gap-1 ${currentView === 'calificaciones' ? 'text-azul-vivo' : 'text-texto-secundario'}`}
             onClick={() => navigate('/calificaciones')}
           >
@@ -45,9 +55,9 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({
             <span className="text-xs">Notas</span>
           </Button>
           
-          <Button 
-            variant="ghost" 
-            size="sm" 
+          <Button
+            variant="ghost"
+            size="sm"
             className={`flex flex-col items-center gap-1 ${currentView === 'profile' ? 'text-azul-vivo' : 'text-texto-secundario'}`}
             onClick={() => navigate('/profile')}
           >
@@ -60,4 +70,4 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({
       <div className="h-20"></div>
     </>
   );
-}; 
+};

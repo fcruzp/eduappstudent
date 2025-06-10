@@ -1,41 +1,33 @@
-import React from "react";
-import { Card, CardContent } from "../../components/ui/card";
-import { Button } from "../../components/ui/button";
+import React from 'react';
+import { Card, CardContent } from "../ui/card";
+import { Button } from "../ui/button";
 import { BookOpen, Clock, MapPin } from "lucide-react";
-import { Header } from "../../components/layout";
-import { BottomNavigation } from "../../components/layout/BottomNavigation";
-import { useMenu } from "../../hooks/useMenu";
-import { Menu } from "../../components/menu";
-import { mainMenuItems } from "../../data/menuItems";
+import { Header } from "../layout";
 
-export const Clases = (): JSX.Element => {
-  const { isOpen: isMenuOpen, openMenu, closeMenu, toggleMenu, handleItemClick } = useMenu({
-    autoClose: true,
-    onItemClick: (item) => {
-      console.log('Menu item clicked:', item.label);
-    }
-  });
+interface HistoriaAsistenciaViewProps {
+  onBackClick: () => void;
+}
 
+export const HistoriaAsistenciaView: React.FC<HistoriaAsistenciaViewProps> = ({ onBackClick }) => {
   return (
     <div className="bg-gris-claro min-h-screen w-full">
       <div className="max-w-[430px] mx-auto bg-white min-h-screen relative">
         <Header
-          onMenuClick={toggleMenu}
-          onSearchClick={() => console.log('Search clicked')}
-          onUserProfileClick={() => console.log('Profile clicked')}
-        />
-        
-        <Menu
-          items={mainMenuItems}
-          isOpen={isMenuOpen}
-          onClose={closeMenu}
-          onItemClick={handleItemClick}
+          onMenuClick={() => {}}
+          onSearchClick={() => {}}
+          onUserProfileClick={() => {}}
         />
         
         <div className="px-4 pt-24 pb-20">
-          <h1 className="text-2xl font-semibold text-texto-principal-oscuro mb-6">
-            Mis Clases
-          </h1>
+          <div className="flex items-center gap-4 mb-6">
+            <Button variant="ghost" size="sm" onClick={onBackClick}>
+              ← Volver
+            </Button>
+            <h1 className="text-2xl font-semibold text-texto-principal-oscuro">
+              Historia de Asistencia
+            </h1>
+          </div>
+
           <div className="space-y-4">
             {/* Clase de Matemáticas */}
             <Card>
@@ -119,14 +111,6 @@ export const Clases = (): JSX.Element => {
             </Card>
           </div>
         </div>
-
-        <BottomNavigation
-          currentView="clases"
-          onDashboardClick={() => window.location.href = '/dashboard'}
-          onHorariosClick={() => window.location.href = '/horarios'}
-          onCalificacionesClick={() => window.location.href = '/calificaciones'}
-          onProfileClick={() => window.location.href = '/profile'}
-        />
       </div>
     </div>
   );

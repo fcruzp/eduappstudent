@@ -1,3 +1,3 @@
 export interface BottomNavigationProps {
-  currentView: 'dashboard' | 'horarios' | 'calificaciones' | 'profile' | 'clases' | 'asistencia';
-} 
+  currentView: 'dashboard' | 'horarios' | 'calificaciones' | 'profile' | 'historia-asistencia' | 'lista-clases';
+}

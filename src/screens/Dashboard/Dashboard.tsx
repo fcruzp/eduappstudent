@@ -17,10 +17,11 @@ import { BottomNavigation } from "../../components/layout/BottomNavigation";
 import { Notification } from "../../types/notification";
 import { mainMenuItems } from "../../data/menuItems";
 import { useNavigate } from "react-router-dom";
+import { HistoriaAsistenciaView } from "../../components/dashboard/HistoriaAsistenciaView";
 
 export const Dashboard = (): JSX.Element => {
   const navigate = useNavigate();
-  const [currentView, setCurrentView] = useState<'dashboard' | 'profile' | 'clases' | 'horarios' | 'asistencia' | 'calificaciones'>('dashboard');
+  const [currentView, setCurrentView] = useState<'dashboard' | 'profile' | 'historia-asistencia' | 'horarios' | 'lista-clases' | 'calificaciones'>('dashboard');
   const [selectedNotification, setSelectedNotification] = useState<Notification | null>(null);
   const [isNotificationDetailOpen, setIsNotificationDetailOpen] = useState(false);
   
@@ -36,14 +37,14 @@ export const Dashboard = (): JSX.Element => {
         case 'view-profile':
           navigate('/profile');
           break;
-        case 'clases':
-          navigate('/clases');
+        case 'historia-asistencia':
+          navigate('/historia-asistencia');
           break;
         case 'horarios':
           navigate('/horarios');
           break;
-        case 'asistencia':
-          navigate('/asistencia');
+        case 'lista-clases':
+          navigate('/lista-clases');
           break;
         case 'calificaciones':
           navigate('/calificaciones');
@@ -85,7 +86,7 @@ export const Dashboard = (): JSX.Element => {
       case 'dashboard':
         return (
           <DashboardView
-            onAsistenciaClick={() => navigate('/asistencia')}
+            onAsistenciaClick={() => navigate('/lista-clases')}
             onClasesClick={() => navigate('/clases')}
             onProfileClick={() => navigate('/profile')}
             onSearchClick={() => console.log('Search clicked')}
@@ -103,7 +104,7 @@ export const Dashboard = (): JSX.Element => {
             phone="+1 (809) 555-0123"
             location="Santo Domingo, República Dominicana"
             career="Ingeniería en Sistemas"
-            semester="6to Semestre"
+            semester="4to Periodo"
             modality="Presencial"
             shift="Matutino"
             progress={{
@@ -115,11 +116,11 @@ export const Dashboard = (): JSX.Element => {
             onViewHistory={() => console.log('View history clicked')}
           />
         );
-      case 'clases':
-        return <ClasesView onBackClick={() => navigate('/dashboard')} />;
+      case 'historia-asistencia':
+        return <HistoriaAsistenciaView onBackClick={() => navigate('/dashboard')} />;
       case 'horarios':
         return <HorariosView onBackClick={() => navigate('/dashboard')} />;
-      case 'asistencia':
+      case 'lista-clases':
         return <AsistenciaView onBackClick={() => navigate('/dashboard')} />;
       case 'calificaciones':
         return <CalificacionesView onBackClick={() => navigate('/dashboard')} />;
@@ -134,8 +135,7 @@ export const Dashboard = (): JSX.Element => {
         <Header
           onMenuClick={toggleMenu}
           onSearchClick={() => console.log('Search clicked')}
-          onUserProfileClick={() => navigate('/profile')}
-          notificationCount={(unreadCount)}
+          onUserProfileClick={() => console.log('Profile clicked')}
         />
         
         <Menu

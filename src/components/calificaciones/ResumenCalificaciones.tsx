@@ -4,7 +4,7 @@ import { ResumenCalificacionesData } from "../../data/resumenCalificacionesData"
 import { getGradeColor } from "../../utils/getGradeColor";
 import { Button } from "../ui/button";
 import { useState } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "../ui/dialog";
 
 interface ResumenCalificacionesProps {
   data: ResumenCalificacionesData;
@@ -96,6 +96,9 @@ export const ResumenCalificaciones = ({
               {selectedRange === 'completivo' && 'Materias en Completivo'}
               {selectedRange === 'extraordinarias' && 'Materias Extraordinarias'}
             </DialogTitle>
+            <DialogDescription>
+              Listado de materias según el rango de calificación seleccionado.
+            </DialogDescription>
           </DialogHeader>
           <div className="space-y-4">
             {selectedRange && getMateriasByRange(selectedRange).map((materia) => (

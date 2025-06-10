@@ -22,10 +22,10 @@ export const mainMenuItems: MenuItem[] = [
     path: '/dashboard'
   },
   {
-    id: 'clases',
-    label: 'Clases',
+    id: 'historia-asistencia',
+    label: 'Historia de Asistencia',
     icon: BookOpen,
-    path: '/clases'
+    path: '/historia-asistencia'
   },
   {
     id: 'horarios',
@@ -34,10 +34,10 @@ export const mainMenuItems: MenuItem[] = [
     path: '/horarios'
   },
   {
-    id: 'asistencia',
-    label: 'Asistencia',
+    id: 'lista-clases',
+    label: 'Lista de Clases',
     icon: CheckCircle,
-    path: '/asistencia'
+    path: '/lista-clases'
   },
   {
     id: 'calificaciones',

@@ -1,6 +1,6 @@
-# Eduweb - App Estudiantil
+# Eduapp - App Estudiantil
 
-Eduweb es una aplicación web progresiva (PWA) diseñada para la gestión académica estudiantil, ofreciendo una experiencia fluida tanto en línea como sin conexión.
+Eduapp Estudiantil - es una aplicación web progresiva (PWA) diseñada para la gestión académica estudiantil, ofreciendo una experiencia fluida tanto en línea como sin conexión.
 
 ## 🚀 Características
 
@@ -30,7 +30,7 @@ Eduweb es una aplicación web progresiva (PWA) diseñada para la gestión acadé
 1. Clona el repositorio:
 ```bash
 git clone <url-del-repositorio>
-cd eduweb
+cd eduapp
 ```
 
 2. Instala las dependencias:
@@ -74,7 +74,7 @@ La aplicación está configurada para ser desplegada en Netlify. El archivo `net
 ## 📁 Estructura del Proyecto
 
 ```
-eduweb/
+eduapp/
 ├── src/
 │   ├── components/     # Componentes reutilizables
 │   ├── screens/        # Pantallas principales

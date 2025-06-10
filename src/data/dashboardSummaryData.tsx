@@ -27,7 +27,7 @@ const XMarkSquareIcon = ({ className }: { className?: string }) => (
 
 export const createDashboardSummaryData = (
   onAsistenciaClick?: () => void,
-  onClasesClick?: () => void
+  onHistoriaAsistenciaClick?: () => void
 ): SummaryItem[] => [
   {
     id: 'asistencia',
@@ -55,7 +55,7 @@ export const createDashboardSummaryData = (
       backgroundColor: 'bg-blue-100',
       iconColor: 'text-blue-500'
     },
-    onClick: onClasesClick
+    onClick: onHistoriaAsistenciaClick
   },
   {
     id: 'tarea-completada',

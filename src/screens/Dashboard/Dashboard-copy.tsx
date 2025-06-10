@@ -497,7 +497,7 @@ export const Dashboard = (): JSX.Element => {
                     <p className="text-texto-secundario">Revisa tu registro de asistencia y porcentaje de participación.</p>
                     <div className="mt-6 p-4 bg-azul-vivo/5 rounded-lg">
                       <div className="text-3xl font-bold text-azul-vivo mb-2">90%</div>
-                      <div className="text-sm text-texto-secundario">Asistencia total del semestre</div>
+                      <div className="text-sm text-texto-secundario">Asistencia total del Periodo</div>
                     </div>
                   </div>
                 </CardContent>
@@ -575,8 +575,8 @@ export const Dashboard = (): JSX.Element => {
                           <p className="text-texto-principal-oscuro font-medium">Ingeniería en Sistemas</p>
                         </div>
                         <div>
-                          <span className="text-texto-secundario">Semestre:</span>
-                          <p className="text-texto-principal-oscuro font-medium">6to Semestre</p>
+                          <span className="text-texto-secundario">Periodo:</span>
+                          <p className="text-texto-principal-oscuro font-medium">6to Periodo</p>
                         </div>
                         <div>
                           <span className="text-texto-secundario">Modalidad:</span>

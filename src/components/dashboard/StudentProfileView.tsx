@@ -15,7 +15,7 @@ interface StudentProfileViewProps {
   semester: string;
   modality: string;
   shift: string;
-  progress: {
+  progress?: {
     completed: number;
     credits: number;
     index: number;
@@ -84,7 +84,7 @@ export const StudentProfileView: React.FC<StudentProfileViewProps> = ({
                   <p className="text-texto-principal-oscuro font-medium">{career}</p>
                 </div>
                 <div>
-                  <span className="text-texto-secundario">Semestre:</span>
+                  <span className="text-texto-secundario">Periodo:</span>
                   <p className="text-texto-principal-oscuro font-medium">{semester}</p>
                 </div>
                 <div>
@@ -97,8 +97,6 @@ export const StudentProfileView: React.FC<StudentProfileViewProps> = ({
                 </div>
               </div>
             </div>
-
-            <hr className="border-lightmodegreygrey-200" />
 
             {/* Contact Information */}
             <div>
@@ -115,27 +113,6 @@ export const StudentProfileView: React.FC<StudentProfileViewProps> = ({
                 <div className="flex items-center gap-3">
                   <MapPin className="w-4 h-4 text-azul-vivo flex-shrink-0" />
                   <span className="text-texto-principal-oscuro">{location}</span>
-                </div>
-              </div>
-            </div>
-
-            <hr className="border-lightmodegreygrey-200" />
-
-            {/* Academic Progress */}
-            <div>
-              <h4 className="text-texto-principal-oscuro font-semibold text-sm mb-3">Progreso Académico</h4>
-              <div className="grid grid-cols-3 gap-4 text-center">
-                <div className="bg-azul-vivo/5 rounded-lg p-3">
-                  <div className="text-lg font-bold text-azul-vivo">{progress.completed}%</div>
-                  <div className="text-xs text-texto-secundario">Completado</div>
-                </div>
-                <div className="bg-color-secundario/5 rounded-lg p-3">
-                  <div className="text-lg font-bold text-color-secundario">{progress.credits}</div>
-                  <div className="text-xs text-texto-secundario">Créditos</div>
-                </div>
-                <div className="bg-color-primario-2/5 rounded-lg p-3">
-                  <div className="text-lg font-bold text-color-primario-2">{progress.index}</div>
-                  <div className="text-xs text-texto-secundario">Índice</div>
                 </div>
               </div>
             </div>
