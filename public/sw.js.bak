@@ -1,4 +1,4 @@
-const CACHE_NAME = 'eduapp-cache-v1';
+const CACHE_NAME = 'anima-cache-v1';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -15,16 +15,6 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  // Ignorar completamente las solicitudes de extensiones
-  if (event.request.url.startsWith('chrome-extension://')) {
-    return;
-  }
-
-  // Ignorar solicitudes de WebSocket
-  if (event.request.url.startsWith('ws://') || event.request.url.startsWith('wss://')) {
-    return;
-  }
-
   event.respondWith(
     caches.match(event.request)
       .then((response) => {
@@ -39,11 +29,7 @@ self.addEventListener('fetch', (event) => {
             const responseToCache = response.clone();
             caches.open(CACHE_NAME)
               .then((cache) => {
-                try {
-                  cache.put(event.request, responseToCache);
-                } catch (error) {
-                  console.log('Cache put failed:', error);
-                }
+                cache.put(event.request, responseToCache);
               });
             return response;
           });
