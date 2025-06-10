@@ -1,0 +1,216 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+  
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+}
+
+:root {
+  --azul-marino: rgba(20, 45, 105, 1);
+  --azul-vivo: rgba(0, 113, 189, 1);
+  --blanco: rgba(255, 255, 255, 1);
+  --body-b-11-12-500-font-family: "Inter", Helvetica;
+  --body-b-11-12-500-font-size: 11px;
+  --body-b-11-12-500-font-style: normal;
+  --body-b-11-12-500-font-weight: 500;
+  --body-b-11-12-500-letter-spacing: 0px;
+  --body-b-11-12-500-line-height: 12px;
+  --body-b-12-12-500-font-family: "Inter", Helvetica;
+  --body-b-12-12-500-font-size: 12px;
+  --body-b-12-12-500-font-style: normal;
+  --body-b-12-12-500-font-weight: 500;
+  --body-b-12-12-500-letter-spacing: 0px;
+  --body-b-12-12-500-line-height: 12px;
+  --body-b-14-14-500-font-family: "Inter", Helvetica;
+  --body-b-14-14-500-font-size: 14px;
+  --body-b-14-14-500-font-style: normal;
+  --body-b-14-14-500-font-weight: 500;
+  --body-b-14-14-500-letter-spacing: 0px;
+  --body-b-14-14-500-line-height: 14px;
+  --body-b-14-22-400-font-family: "Inter", Helvetica;
+  --body-b-14-22-400-font-size: 14px;
+  --body-b-14-22-400-font-style: normal;
+  --body-b-14-22-400-font-weight: 400;
+  --body-b-14-22-400-letter-spacing: 0px;
+  --body-b-14-22-400-line-height: 22px;
+  --body-b-16-16-600-font-family: "Inter", Helvetica;
+  --body-b-16-16-600-font-size: 16px;
+  --body-b-16-16-600-font-style: normal;
+  --body-b-16-16-600-font-weight: 400;
+  --body-b-16-16-600-letter-spacing: 0px;
+  --body-b-16-16-600-line-height: 16px;
+  --color-primario-1: rgba(0, 112, 205, 1);
+  --color-primario-2: rgba(255, 163, 0, 1);
+  --color-secundario: rgba(23, 198, 83, 1);
+  --colorsblue: rgba(0, 122, 255, 1);
+  --colorsorange: rgba(255, 164, 90, 1);
+  --colorsteal: rgba(48, 176, 199, 1);
+  --contenido-font-family: "Cabin", Helvetica;
+  --contenido-font-size: 12px;
+  --contenido-font-style: normal;
+  --contenido-font-weight: 400;
+  --contenido-letter-spacing: 0px;
+  --contenido-line-height: normal;
+  --darkbasebaseblack: rgba(44, 44, 44, 1);
+  --graygray-100: rgba(249, 249, 249, 1);
+  --gris-claro: rgba(248, 248, 248, 1);
+  --gris-neutro: rgba(209, 213, 219, 1);
+  --heading-h-30-30-600-font-family: "Inter", Helvetica;
+  --heading-h-30-30-600-font-size: 30px;
+  --heading-h-30-30-600-font-style: normal;
+  --heading-h-30-30-600-font-weight: 400;
+  --heading-h-30-30-600-letter-spacing: -0.6px;
+  --heading-h-30-30-600-line-height: 30px;
+  --lightmodedangerdanger: rgba(248, 40, 90, 1);
+  --lightmodegreygrey-200: rgba(241, 241, 244, 1);
+  --lightmodegreygrey-300: rgba(219, 223, 233, 1);
+  --lightmodegreygrey-500: rgba(153, 161, 183, 1);
+  --lightmodegreygrey-600: rgba(120, 130, 157, 1);
+  --lightmodegreygrey-700: rgba(75, 86, 117, 1);
+  --lightmodegreygrey-800: rgba(37, 47, 74, 1);
+  --lightmodegreygrey-900: rgba(7, 20, 55, 1);
+  --lightmodelightlight: rgba(255, 255, 255, 1);
+  --lightmodesuccesssuccess: rgba(23, 198, 83, 1);
+  --lightmodesuccesssuccess-active: rgba(4, 180, 64, 1);
+  --lightmodesuccesssuccess-clarity-20: rgba(23, 198, 83, 0.2);
+  --lightmodesuccesssuccess-light: rgba(234, 255, 241, 1);
+  --m3syslighton-primary: rgba(255, 255, 255, 1);
+  --neutralneutral-0: rgba(18, 18, 19, 1);
+  --neutralneutral-100: rgba(255, 255, 255, 1);
+  --neutralneutral-20: rgba(47, 49, 53, 1);
+  --neutralneutral-50: rgba(118, 121, 125, 1);
+  --neutralneutral-60: rgba(143, 146, 150, 1);
+  --neutralneutral-90: rgba(224, 228, 233, 1);
+  --neutralneutral-95: rgba(244, 245, 250, 1);
+  --primaryprimary-11: rgba(12, 25, 47, 1);
+  --primaryprimary-8: rgba(24, 50, 94, 1);
+  --secondarysecondary: rgba(237, 30, 41, 1);
+  --text-tiny-semi-bold-font-family: "DM Sans", Helvetica;
+  --text-tiny-semi-bold-font-size: 10px;
+  --text-tiny-semi-bold-font-style: normal;
+  --text-tiny-semi-bold-font-weight: 600;
+  --text-tiny-semi-bold-letter-spacing: -0.2px;
+  --text-tiny-semi-bold-line-height: 150%;
+  --textcolor-text: rgba(18, 28, 45, 1);
+  --textcolor-text-weakest: rgba(255, 255, 255, 1);
+  --texticoncolor-text-icon: rgba(96, 107, 133, 1);
+  --texto-activoenfocado: rgba(0, 113, 189, 1);
+  --texto-principal-oscuro: rgba(55, 65, 81, 1);
+  --texto-secundario: rgba(107, 114, 128, 1);
+  --titulos-font-family: "Cabin", Helvetica;
+  --titulos-font-size: 14px;
+  --titulos-font-style: normal;
+  --titulos-font-weight: 700;
+  --titulos-letter-spacing: 0px;
+  --titulos-line-height: 17%;
+  --utilities-figma-specifictransparent: rgba(255, 255, 255, 0.0);
+  --widget-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.03);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --card: transparent;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --card: transparent;
+    --card-foreground: 213 31% 91%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
