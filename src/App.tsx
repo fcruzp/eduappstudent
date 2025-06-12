@@ -22,6 +22,12 @@ function App() {
     setIsAuthenticated(true);
   };
 
+  const handleLogout = () => {
+    // Aquí se pueden limpiar tokens o cualquier dato de sesión.
+    setIsAuthenticated(false);
+    setCurrentScreen('login');
+  };
+
   if (currentScreen === 'splash') {
     return <SplashScreen onComplete={handleSplashComplete} />;
   }
@@ -37,12 +43,12 @@ function App() {
           path="/" 
           element={isAuthenticated ? <Navigate to="/dashboard" /> : <Navigate to="/login" />} 
         />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard onLogout={handleLogout} />} />
         <Route path="/horarios" element={<Horarios />} />
-        <Route path="/calificaciones" element={<Calificaciones />} />
-        <Route path="/historia-asistencia" element={<HistoriaAsistencia />} />
-        <Route path="/lista-clases" element={<ListaClases />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/calificaciones" element={<Calificaciones onLogout={handleLogout} />} />
+        <Route path="/historia-asistencia" element={<HistoriaAsistencia onLogout={handleLogout} />} />
+        <Route path="/lista-clases" element={<ListaClases onLogout={handleLogout} />} />
+        <Route path="/profile" element={<Profile onLogout={handleLogout} />} />
       </Routes>
     </Router>
   );

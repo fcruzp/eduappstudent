@@ -8,8 +8,8 @@ import { createDashboardSummaryData } from "../../data/dashboardSummaryData.tsx"
 import { pendingTasks } from "../../data/pendingTasksData";
 
 interface DashboardViewProps {
-  onAsistenciaClick?: () => void;
   onHistoriaAsistenciaClick?: () => void;
+  onClasesClick?: () => void;
   onProfileClick?: () => void;
   onSearchClick?: () => void;
   onTaskClick?: (taskId: string) => void;
@@ -18,7 +18,7 @@ interface DashboardViewProps {
 }
 
 export const DashboardView: React.FC<DashboardViewProps> = ({
-  onAsistenciaClick,
+  onClasesClick,
   onHistoriaAsistenciaClick,
   onProfileClick,
   onSearchClick,
@@ -71,26 +71,19 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
 
   // Create dashboard summary data with navigation callbacks
   const dashboardSummaryData = createDashboardSummaryData(
-    onAsistenciaClick,
+    onClasesClick,
     onHistoriaAsistenciaClick
   );
 
   return (
-    <div className={`bg-gris-claro min-h-screen w-full ${className}`}>
+    <div className={`bg-gris-claro pt-20 min-h-screen w-full ${className}`}>
       <div className="max-w-[430px] mx-auto bg-white min-h-screen relative">
         <div className="p-4 space-y-6">
           <div className="flex items-center justify-between mb-6">
-            <h1 className="text-2xl font-bold text-texto-principal-oscuro">
+            <h1 className="text-2xl font-semibold text-texto-principal-oscuro">
               Hola, {userName}
             </h1>
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="text-texto-principal-oscuro hover:bg-gray-100"
-              onClick={onSearchClick}
-            >
-              <Search className="w-6 h-6" />
-            </Button>
+           
           </div>
 
           <StudentProfileCard

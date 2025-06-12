@@ -1,26 +1,13 @@
 import React from "react";
 import { Card, CardContent } from "../ui/card";
-import { Button } from "../ui/button";
 import { Award, TrendingUp, TrendingDown } from "lucide-react";
 
-interface CalificacionesViewProps {
-  onBackClick: () => void;
-}
 
-export const CalificacionesView: React.FC<CalificacionesViewProps> = ({ onBackClick }) => {
+export const CalificacionesView = () => {
   return (
     <div className="p-4">
-      <Button 
-        variant="ghost" 
-        size="sm" 
-        className="text-azul-vivo"
-        onClick={onBackClick}
-      >
-        ← Volver
-      </Button>
-      
       <h1 className="text-2xl font-bold text-texto-principal-oscuro mt-4 mb-6">
-        Calificaciones
+        CalificacioneX
       </h1>
 
       <div className="space-y-4">

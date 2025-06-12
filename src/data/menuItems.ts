@@ -79,10 +79,7 @@ export const mainMenuItems: MenuItem[] = [
     id: 'logout',
     label: 'Cerrar Sesión',
     icon: LogOut,
-    onClick: () => {
-      console.log('Logging out...');
-      // Implement logout logic
-    }
+    path: '/'
   }
 ];
 

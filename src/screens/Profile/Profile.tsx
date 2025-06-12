@@ -4,17 +4,24 @@ import { BottomNavigation } from "../../components/layout/BottomNavigation";
 import { useMenu } from "../../hooks/useMenu";
 import { Menu } from "../../components/menu";
 import { mainMenuItems } from "../../data/menuItems";
-import { useNavigate } from "react-router-dom";
 import { StudentProfileView } from "../../components/dashboard/StudentProfileView";
 import { ResumenCalificaciones } from "../../components/calificaciones/ResumenCalificaciones";
 import { mockResumenCalificacionesData, mockMateriasCalificaciones } from "../../data/mockGradesData";
 
-export const Profile = (): JSX.Element => {
-  const navigate = useNavigate();
-  const { isOpen: isMenuOpen, openMenu, closeMenu, toggleMenu, handleItemClick } = useMenu({
+interface ProfileProps {
+  onLogout: () => void;
+}
+
+export const Profile = ({ onLogout }: ProfileProps): JSX.Element => {
+  const { isOpen: isMenuOpen, closeMenu, toggleMenu, handleItemClick } = useMenu({
     autoClose: true,
     onItemClick: (item) => {
-      console.log('Menu item clicked:', item.label);
+      if (item.id === "logout") {
+        onLogout();
+      } else {
+        console.log('Menu item clicked:', item.label);
+      }
+      closeMenu();
     }
   });
 
@@ -40,7 +47,7 @@ export const Profile = (): JSX.Element => {
             code="D-466"
             grade="3er grado de secundaria"
             profileImage="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop&crop=face"
-            email="mario.ramirez@estudiante.gob.do"
+            email="mario.ramirez@estudiante.edu.do"
             phone="+1 (809) 555-0123"
             location="Santo Domingo, República Dominicana"
             career="Liceo Juan Pablo Duarte"
@@ -58,10 +65,8 @@ export const Profile = (): JSX.Element => {
           </div>
         </div>
 
-        <BottomNavigation
-          currentView="profile"
-        />
+        <BottomNavigation currentView="profile" />
       </div>
     </div>
   );
-}; 
+};

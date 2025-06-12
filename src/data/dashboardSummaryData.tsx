@@ -43,7 +43,7 @@ export const createDashboardSummaryData = (
         bottomLeft: 'bg-yellow-300'
       }
     },
-    onClick: onAsistenciaClick
+    onClick: onHistoriaAsistenciaClick
   },
   {
     id: 'asignaturas',
@@ -55,7 +55,7 @@ export const createDashboardSummaryData = (
       backgroundColor: 'bg-blue-100',
       iconColor: 'text-blue-500'
     },
-    onClick: onHistoriaAsistenciaClick
+    onClick: onAsistenciaClick
   },
   {
     id: 'tarea-completada',

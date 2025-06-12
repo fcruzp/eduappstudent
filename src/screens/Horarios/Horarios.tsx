@@ -1,7 +1,4 @@
 import React from "react";
-import { Card, CardContent } from "../../components/ui/card";
-import { Button } from "../../components/ui/button";
-import { Calendar, Clock, MapPin } from "lucide-react";
 import { Header } from "../../components/layout";
 import { BottomNavigation } from "../../components/layout/BottomNavigation";
 import { useMenu } from "../../hooks/useMenu";

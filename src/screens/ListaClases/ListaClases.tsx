@@ -16,6 +16,10 @@ import {
   type ClassSchedule
 } from "../../data/DataListaClases";
 
+interface ListaClasesProps {
+  onLogout: () => void;
+}
+
 const getStatusIcon = (status: ClassStatus) => {
   switch (status) {
     case 'completed':
@@ -61,19 +65,25 @@ const getTextStyles = (status: ClassStatus) => {
   }
 };
 
-export const ListaClases = (): JSX.Element => {
+export const ListaClases = ({ onLogout }: ListaClasesProps): JSX.Element => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [showCalendar, setShowCalendar] = useState(false);
   const calendarRef = useRef<HTMLDivElement>(null);
+
   
+  // Se agrega la llamada a onLogout en el menú
   const { isOpen: isMenuOpen, openMenu, closeMenu, toggleMenu, handleItemClick } = useMenu({
     autoClose: true,
     onItemClick: (item) => {
-      console.log('Menu item clicked:', item.label);
+      if (item.id === 'logout') {
+        onLogout();
+      } else {
+        console.log('Menu item clicked:', item.label);
+      }
     }
   });
 
-  // Close calendar when clicking outside
+  // Cierra el calendario al hacer clic fuera
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (calendarRef.current && !calendarRef.current.contains(event.target as Node)) {
@@ -117,7 +127,6 @@ export const ListaClases = (): JSX.Element => {
         <Header
           onMenuClick={toggleMenu}
           onSearchClick={() => console.log('Search clicked')}
-          onUserProfileClick={() => console.log('Profile clicked')}
         />
         
         <Menu
@@ -130,7 +139,7 @@ export const ListaClases = (): JSX.Element => {
         <div className="px-3 pt-24 pb-16">
           {/* Header Section */}
           <div className="flex items-center justify-between mb-6">
-            <h1 className="text-lg font-semibold text-texto-principal-oscuro">
+            <h1 className="text-2xl font-semibold text-texto-principal-oscuro">
               Horario de Clases
             </h1>
             <div className="relative" ref={calendarRef}>
@@ -190,14 +199,10 @@ export const ListaClases = (): JSX.Element => {
                     {/* Subject Title and Course Level */}
                     <div className="flex items-start justify-between mb-3">
                       <div className="flex-1">
-                        <h2 className={`text-lg font-bold mb-1 ${
-                          classItem.status === 'pending' ? 'text-texto-principal-oscuro' : 'text-white'
-                        }`}>
+                        <h2 className={`text-lg font-bold mb-1 ${classItem.status === 'pending' ? 'text-texto-principal-oscuro' : 'text-white'}`}>
                           {classItem.subject}
                         </h2>
-                        <p className={`text-sm font-medium ${
-                          classItem.status === 'pending' ? 'text-texto-secundario' : 'text-white/80'
-                        }`}>
+                        <p className={`text-sm font-medium ${classItem.status === 'pending' ? 'text-texto-secundario' : 'text-white/80'}`}>
                           Curso: {classItem.courseLevel}
                         </p>
                       </div>
@@ -205,9 +210,7 @@ export const ListaClases = (): JSX.Element => {
 
                     {/* Time Display */}
                     <div className="text-center mb-3">
-                      <div className={`text-2xl font-bold ${
-                        classItem.status === 'pending' ? 'text-texto-principal-oscuro' : 'text-white'
-                      }`}>
+                      <div className={`text-2xl font-bold ${classItem.status === 'pending' ? 'text-texto-principal-oscuro' : 'text-white'}`}>
                         {classItem.startTime} - {classItem.endTime}
                       </div>
                     </div>
@@ -223,24 +226,16 @@ export const ListaClases = (): JSX.Element => {
                       </div>
                       
                       <div className="flex-1 min-w-0">
-                        <div className={`text-xs font-medium mb-1 ${
-                          classItem.status === 'pending' ? 'text-texto-secundario' : 'text-white/90'
-                        }`}>
+                        <div className={`text-xs font-medium mb-1 ${classItem.status === 'pending' ? 'text-texto-secundario' : 'text-white/90'}`}>
                           Docente:
                         </div>
-                        <h3 className={`text-base font-bold mb-1 ${
-                          classItem.status === 'pending' ? 'text-texto-principal-oscuro' : 'text-white'
-                        }`}>
+                        <h3 className={`text-base font-bold mb-1 ${classItem.status === 'pending' ? 'text-texto-principal-oscuro' : 'text-white'}`}>
                           {classItem.teacher.name}
                         </h3>
-                        <p className={`text-xs ${
-                          classItem.status === 'pending' ? 'text-texto-secundario' : 'text-white/70'
-                        }`}>
+                        <p className={`text-xs ${classItem.status === 'pending' ? 'text-texto-secundario' : 'text-white/70'}`}>
                           Código: {classItem.teacher.id}
                         </p>
-                        <p className={`text-xs font-medium ${
-                          classItem.status === 'pending' ? 'text-azul-vivo' : 'text-white'
-                        }`}>
+                        <p className={`text-xs font-medium ${classItem.status === 'pending' ? 'text-azul-vivo' : 'text-white'}`}>
                           Materia: {classItem.subject}
                         </p>
                       </div>

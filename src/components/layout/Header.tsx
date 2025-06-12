@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Menu, Search } from 'lucide-react';
 import { Button } from '../ui/button';
 import { cn } from '../../lib/utils';
@@ -82,6 +83,7 @@ export const Header: React.FC<HeaderProps> = ({
   menuIcon: MenuIcon = Menu,
   searchIcon: SearchIcon = Search
 }) => {
+  const navigate = useNavigate();
   const [selectedNotification, setSelectedNotification] = useState<Notification | null>(null);
   const [isNotificationDetailOpen, setIsNotificationDetailOpen] = useState(false);
 
@@ -105,6 +107,14 @@ export const Header: React.FC<HeaderProps> = ({
   const closeNotificationDetail = () => {
     setIsNotificationDetailOpen(false);
     setSelectedNotification(null);
+  };
+
+  const handleUserProfileClick = () => {
+    if (onUserProfileClick) {
+      onUserProfileClick();
+    } else {
+      navigate('/profile');
+    }
   };
 
   const headerClasses = cn(
@@ -205,7 +215,7 @@ export const Header: React.FC<HeaderProps> = ({
                 {showUserProfile && (
                   <button 
                     className="w-10 h-10 bg-white rounded-full flex items-center justify-center ml-2 border-2 border-azul-vivo hover:border-azul-marino transition-colors focus:outline-none focus:ring-2 focus:ring-azul-vivo focus:ring-offset-2"
-                    onClick={onUserProfileClick}
+                    onClick={handleUserProfileClick}
                     aria-label={`Perfil de ${userName}`}
                   >
                     <img 

@@ -80,7 +80,7 @@ export const StudentProfileView: React.FC<StudentProfileViewProps> = ({
               </h4>
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
-                  <span className="text-texto-secundario">Carrera:</span>
+                  <span className="text-texto-secundario">Centro:</span>
                   <p className="text-texto-principal-oscuro font-medium">{career}</p>
                 </div>
                 <div>

@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { Card, CardContent } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
-import { BookOpen, Calendar, ChevronRight, MessageSquare, Brain, Heart, Microscope } from "lucide-react";
+import { BookOpen, Calendar, ChevronRight } from "lucide-react";
 import { mainMenuItems } from "../../data/menuItems";
-import { useNavigate } from "react-router-dom";
 import { materias, competenciasData, type Competencia } from "../../data/calificacionesData";
 import { resumenCalificacionesData } from "../../data/resumenCalificacionesData";
 import { Header } from "../../components/layout";
@@ -13,14 +12,22 @@ import { Menu } from "../../components/menu";
 import { ResumenCalificaciones } from "../../components/calificaciones/ResumenCalificaciones";
 import { getGradeColor } from "../../utils/getGradeColor";
 
-export const Calificaciones = (): JSX.Element => {
-  const navigate = useNavigate();
+interface CalificacionesProps {
+  onLogout: () => void;
+}
+
+export const Calificaciones = ({ onLogout }: CalificacionesProps): JSX.Element => {
+
   const [currentCompetencia, setCurrentCompetencia] = useState<Competencia>(competenciasData.comunicacion);
   
-  const { isOpen: isMenuOpen, openMenu, closeMenu, toggleMenu, handleItemClick } = useMenu({
+  const { isOpen: isMenuOpen, closeMenu, toggleMenu, handleItemClick } = useMenu({
     autoClose: true,
     onItemClick: (item) => {
-      console.log('Menu item clicked:', item.label);
+      if (item.id === "logout") {
+        onLogout();
+      } else {
+        console.log('Menu item clicked:', item.label);
+      }
     }
   });
 
@@ -30,7 +37,6 @@ export const Calificaciones = (): JSX.Element => {
         <Header
           onMenuClick={toggleMenu}
           onSearchClick={() => console.log('Search clicked')}
-          onUserProfileClick={() => navigate('/profile')}
         />
         
         <Menu
@@ -155,4 +161,4 @@ export const Calificaciones = (): JSX.Element => {
       </div>
     </div>
   );
-}; 
+};
